@@ -22,6 +22,12 @@
             "Dynamic\\BaseMigrator\\Test\\": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.packagist.com/dynamic/"
+        }
+    ],
     "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev"
