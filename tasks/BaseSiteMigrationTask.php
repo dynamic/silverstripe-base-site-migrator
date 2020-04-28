@@ -115,6 +115,9 @@ class BaseSiteMigrationTask extends BuildTask
             $address->PostalCode = $primary->PostalCode;
             $address->Country = $primary->Country;
             $address->SiteConfigID = $site_config->ID;
+            $address->Phone = $primary->Phone;
+            $address->Fax = $primary->Fax;
+            $address->Email = $primary->Email;
             $address->write();
             static::write_message("Primary Address updated");
         }
