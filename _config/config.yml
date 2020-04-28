@@ -15,10 +15,7 @@ Dynamic\Base\Model\NavigationColumn:
   extensions:
     - Dynamic\BaseMigrator\Extension\ModelMigrationDataExtension
 
-Dynamic\Base\Model\NavigationGroup:
-  extensions:
-    - Dynamic\BaseMigrator\Extension\ModelMigrationDataExtension
-
 Dynamic\TemplateConfig\Model\TemplateConfigSetting:
   extensions:
     - Dynamic\TemplateConfig\ORM\BrandingDataExtension
+    - Dynamic\TemplateConfig\ORM\UtilityDataExtension
