@@ -9,12 +9,16 @@ SilverStripe\ORM\DatabaseAdmin:
 
 Dynamic\Base\Model\SocialLink:
   extensions:
-    - Dynamic\Agency\Migration\Extension\ModelMigrationDataExtension
+    - Dynamic\BaseMigrator\Extension\ModelMigrationDataExtension
 
 Dynamic\Base\Model\NavigationColumn:
   extensions:
-    - Dynamic\Agency\Migration\Extension\ModelMigrationDataExtension
+    - Dynamic\BaseMigrator\Extension\ModelMigrationDataExtension
 
 Dynamic\Base\Model\NavigationGroup:
   extensions:
-    - Dynamic\Agency\Migration\Extension\ModelMigrationDataExtension
+    - Dynamic\BaseMigrator\Extension\ModelMigrationDataExtension
+
+Dynamic\TemplateConfig\Model\TemplateConfigSetting:
+  extensions:
+    - Dynamic\TemplateConfig\ORM\BrandingDataExtension
