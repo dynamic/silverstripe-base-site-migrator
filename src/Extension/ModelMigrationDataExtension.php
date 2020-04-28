@@ -2,6 +2,7 @@
 
 namespace Dynamic\BaseMigrator\Extension;
 
+use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataExtension;
 
 class ModelMigrationDataExtension extends DataExtension
@@ -12,4 +13,14 @@ class ModelMigrationDataExtension extends DataExtension
     private static $db = [
         'GlobalConfigID' => 'Int',
     ];
+
+    /**
+     * @param FieldList $fields
+     */
+    public function updateCMSFields(FieldList $fields)
+    {
+        $fields->removeByName([
+            'GlobalConfigID',
+        ]);
+    }
 }
