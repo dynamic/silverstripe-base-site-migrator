@@ -1,0 +1,20 @@
+---
+name: base-site-migrator
+---
+SilverStripe\ORM\DatabaseAdmin:
+  classname_value_remapping:
+    Dynamic\TemplateConfig\Model\NavigationColumn: Dynamic\Base\Model\NavigationColumn
+    Dynamic\TemplateConfig\Model\NavigationGroup: Dynamic\Base\Model\NavigationGroup
+    Dynamic\TemplateConfig\Model\SocialLink: Dynamic\Base\Model\SocialLink
+
+Dynamic\Base\Model\SocialLink:
+  extensions:
+    - Dynamic\Agency\Migration\Extension\ModelMigrationDataExtension
+
+Dynamic\Base\Model\NavigationColumn:
+  extensions:
+    - Dynamic\Agency\Migration\Extension\ModelMigrationDataExtension
+
+Dynamic\Base\Model\NavigationGroup:
+  extensions:
+    - Dynamic\Agency\Migration\Extension\ModelMigrationDataExtension
