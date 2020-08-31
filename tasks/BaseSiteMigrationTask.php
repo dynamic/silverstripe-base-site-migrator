@@ -7,6 +7,7 @@ use Dynamic\Base\Model\NavigationColumn;
 use Dynamic\Base\Model\NavigationGroup;
 use Dynamic\Base\Model\SocialLink;
 use Dynamic\CompanyConfig\Model\CompanyConfigSetting;
+use Dynamic\IntegrationConfig\Model\IntegrationConfigSetting;
 use Dynamic\Locator\Location;
 use Dynamic\TemplateConfig\Model\TemplateConfigSetting;
 use SilverStripe\Control\Director;
@@ -36,6 +37,7 @@ class BaseSiteMigrationTask extends BuildTask
         $this->updateSocialLinks();
         $this->updateFooterLinks();
         $this->updateCompanyConfig();
+        $this->updateIntegrationConfig();
     }
 
     /**
@@ -121,6 +123,25 @@ class BaseSiteMigrationTask extends BuildTask
             $address->write();
             static::write_message("Primary Address updated");
         }
+    }
+
+    /**
+     *
+     */
+    public function updateIntegrationConfig()
+    {
+        $integration_config = IntegrationConfigSetting::current_integration_config();
+        $site_config = SiteConfig::current_site_config();
+
+        $site_config->UseGA = $integration_config->UseGA;
+        $site_config->GACode = $integration_config->GACode;
+        $site_config->UseGTM = $integration_config->UseGTM;
+        $site_config->GTMHeadCode = $integration_config->GTMHeadCode;
+        $site_config->GTMBodyCode = $integration_config->GTMBodyCode;
+        $site_config->UseHubSpot = $integration_config->UseHubSpot;
+        $site_config->HubSpotAccountID = $integration_config->HubSpotAccountID;
+        $site_config->write();
+        static::write_message("Integrations updated");
     }
 
     /**
